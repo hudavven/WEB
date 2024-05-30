@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+<div class="container text-center border-black mt-2" >
+    <h1 class="fst-italic" style="font-size: 80px"> TodoList </h1>
+
+    <form>
+        <label class="d-block fs-4" for="todo">Yeni Bir Yapılacak Ekle:</label>
+
+        <input class="fs-3 mt-2 p-2 " type="text" id="todo">
+    </form>
+
+    <button id="buton1" class="btn btn-success mt-4 fs-5">Ekle</button>
+    <h5 class="fs-3 mt-3">Yapılacaklar: </h5>
+</div>
+
+<div class="container text-center border-black mt-4 position-relative" id="eklenecek">
+
+
+</div>
+
+<div class="container text-center">
+
+    <button id="buton2" class="btn btn-danger mt-4 fs-5">Hepsini Sil</button>
+
+
+
+</div>
+
+
+<script>
+    const ekleButonu = document.getElementById("buton1");
+    const hepsiniSilButonu = document.getElementById("buton2");
+
+    const eklenecekYer1 = document.getElementById("eklenecek");
+
+    ekleButonu.addEventListener("click", ekleme);
+    hepsiniSilButonu.addEventListener("click", hepsiniSilme);
+
+
+
+    function ekleme() {
+        var yeniDiv = document.createElement("div");
+        yeniDiv.className = `alert alert-info fs-4 position-relative`;
+        var yapilcak= document.getElementById("todo").value;
+        yeniDiv.innerHTML=yapilcak + `<button class="btn btn-danger position-absolute" id="tekteksilen" style="bottom: 12px; right: 9px;">X</button>`
+
+        eklenecekYer1.appendChild(yeniDiv);
+
+    }
+
+
+    function hepsiniSilme() {
+        document.getElementById("eklenecek").innerHTML = "";
+    }
+
+</script>
+
+
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>
